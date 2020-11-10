@@ -1,0 +1,33 @@
+# Install Package
+
+install.packages("sparklyr")
+
+# loading Package
+# You should also install a local version of Spark for development purposes:
+
+library(sparklyr)
+
+spark_install(version = "2.1.0")
+
+# To upgrade to the latest version of sparklyr, run the following command and restart your r session:
+
+devtools::install_github("rstudio/sparklyr")
+
+
+# Connecting to Spark
+
+library(sparklyr)
+sc <- sparklyr::spark_connect(master = "local")
+
+
+# Using dplyr
+# We can now use all of the available dplyr verbs against the tables within the cluster.
+
+# We’ll start by copying some datasets from R into the Spark cluster (note that you may need to install the nycflights13 and Lahman packages in order to execute this code):
+
+install.packages(c("nycflights13", "Lahman"))
+library(dplyr)
+iris_tbl <- copy_to(sc, iris)
+flights_tbl <- copy_to(sc, nycflights13::flights, "flights")
+batting_tbl <- copy_to(sc, Lahman::Batting, "batting")
+src_tbls(sc)
