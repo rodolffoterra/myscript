@@ -1,0 +1,55 @@
+###############################################################
+# List of variables
+
+number_int.vars <- c('col1',"col2","col3","col4")
+
+number_float.vars <- c('col5','col6','col7')
+
+factor.vars <- c('col5','col6','col7')
+
+
+######## ⬆  ⬆  ⬆  ⬆  ⬆  ⬆  ⬆  ⬆  ⬆  ⬆  ⬆  ⬆ #################### 
+###############################################################
+
+# Function to convert variable to numeric (float)
+
+to.numeric <- function(df, variables){
+  for (variable in variables){
+    df[[variable]] <- as.numeric(paste(df[[variable]]))
+  }
+  return(df)
+}
+
+
+df <- to.numeric(df = df, variables = number_float.vars)
+
+dplyr::glimpse(df)
+
+###############################################################
+
+# Function to convert variable to numeric (integer)
+
+to.integer <- function(df, variables){
+  for (variable in variables){
+    df[[variable]] <- as.integer(paste(df[[variable]]))
+  }
+  return(df)
+}
+
+df <- to.integer(df = df, variables = number_int.vars)
+
+dplyr::glimpse(df)
+###############################################################
+
+# Function to convert variable to factor
+
+to.integer <- function(df, variables){
+  for (variable in variables){
+    df[[variable]] <- as.factor(paste(df[[variable]]))
+  }
+  return(df)
+}
+
+df <- to.integer(df = df, variables = factor.vars)
+
+dplyr::glimpse(df)
