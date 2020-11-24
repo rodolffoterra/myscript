@@ -1,0 +1,5 @@
+
+organize variable for order that I want
+
+df$cluster <- factor(as.character(df$cluster),
+                                  levels = c("Hot Vacation Home","Cold Vacation Home"))
