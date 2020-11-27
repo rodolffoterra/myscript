@@ -1,0 +1,16 @@
+# Ajusta o label da previsão
+library(plyr)
+?mapvalues
+resultado_final$Previsao <- mapvalues(resultado_final$Previsao,
+                                                 from = c(1,2,3),
+                                                 to = c("Alto", "Médio", "Baixo"))
+                                                 
+or
+
+
+resultado_final$Previsao <- mapvalues(resultado_final$Previsao,
+                                                 from = evels(as.factor(resultado_final$Previsao)),
+                                                 to = c("Alto", "Médio", "Baixo"))
+
+
+
