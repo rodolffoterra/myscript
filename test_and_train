@@ -1,0 +1,4 @@
+indice <- caret::createDataPartition(dados_clientes$inadimplente, p = 0.75, list = FALSE)
+
+dados_treino <- dados_clientes[indice,]
+dados_teste <- dados_clientes[-indice,]
