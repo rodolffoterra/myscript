@@ -1,0 +1,1 @@
+dados_balanceado <- DMwR::SMOTE(target ~. , data = df_treino)
