@@ -1,0 +1,24 @@
+
+# Ajusta o label da previsão
+library(plyr)
+?mapvalues
+resultado_final$`Previsão de Gasto` <- mapvalues(resultado_final$`Previsão de Gasto`,
+                                                 from = c(1,2,3),
+                                                 to = c("Alto", "Médio", "Baixo"))
+                                                 
+                                                
+#############################################
+
+library(utf8)
+
+x <- top_n_related_searches_tbl$value
+x <- as.character(x)
+Encoding(x) <- c("UTF-8", "UTF-8", "bytes")
+
+x <- as_utf8(x)
+
+x <- as.data.frame(x)
+
+colnames(x) <- c('value')
+
+top_n_related_searches_tbl$value<- x$value
