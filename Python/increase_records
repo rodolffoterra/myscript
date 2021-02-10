@@ -18,3 +18,11 @@ df_classe_minoritaria_upsampled = resample(df_classe_minoritaria,
                                            
 df_classe_minoritaria_upsampled.shape
 (50140, 11)
+
+
+dadosRH_balanceados = pd.concat([df_classe_majoritaria, df_classe_minoritaria_upsampled])
+
+dadosRH_balanceados.promovido.value_counts()
+# 1    50140
+# 0    50140
+# Name: promovido, dtype: int64
