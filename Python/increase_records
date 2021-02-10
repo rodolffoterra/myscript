@@ -1,0 +1,20 @@
+dadosRH.groupby(['promovido']).count()
+
+df_classe_majoritaria = dadosRH[dadosRH.promovido == 0 ]
+df_classe_minoritaria = dadosRH[dadosRH.promovido == 1 ]
+
+df_classe_majoritaria.shape
+# (50140, 11)
+
+df_classe_minoritaria.shape
+# (4668, 11)
+
+# Minority class up sample
+from sklearn.utils import resample
+df_classe_minoritaria_upsampled = resample(df_classe_minoritaria, 
+                                           replace = True,     
+                                           n_samples = 50140,   
+                                           random_state = 150) 
+                                           
+df_classe_minoritaria_upsampled.shape
+(50140, 11)
