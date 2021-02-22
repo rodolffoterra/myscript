@@ -3,3 +3,7 @@ organize variable for order that I want
 
 df$cluster <- factor(as.character(df$cluster),
                                   levels = c("Hot Vacation Home","Cold Vacation Home"))
+                                  
+                                  
+a$categoria <- factor(as.character(a$categoria),
+                       levels = a$categoria[order(a$percentual)])         
