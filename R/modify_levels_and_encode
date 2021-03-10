@@ -1,7 +1,13 @@
 # Rename Labels
 
 df$Survived <- factor(df$Survived, 
-                      labels = c("Naufragados","Sobrevivente"),
+                      labels = c(""Sobrevivente, "Naufragados"))
+
+
+# Create Ordered
+
+df$Survived <- factor(df$Survived, 
+                      labels = c(""Sobrevivente, "Naufragados"),
                       ordered = True)
 
 
