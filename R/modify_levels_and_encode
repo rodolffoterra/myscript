@@ -1,6 +1,8 @@
 # Rename Labels
 
-df$Survived <- factor(df$Survived, labels = c("Naufragados","Sobrevivente"))
+df$Survived <- factor(df$Survived, 
+                      labels = c("Naufragados","Sobrevivente"),
+                      ordered = True)
 
 
 # Ajusta o label da previsão
