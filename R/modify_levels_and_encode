@@ -1,3 +1,7 @@
+# Rename Labels
+
+df$Survived <- factor(df$Survived, labels = c("Naufragados","Sobrevivente"))
+
 
 # Ajusta o label da previsão
 library(plyr)
