@@ -1,0 +1,16 @@
+from pandas import DataFrame
+DataFrame(df, columns = ["a","b","c"]
+
+import pandas as pd
+
+
+df = df.rename(columns={'nome': 'nome_completo'})
+#ou
+df.rename(columns={'nome': 'nome_completo'}, inplace = True)
+
+
+
+df.columns = ['nome_completo', 'idade']
+
+
+df = pd.read_csv('dados.csv', sep=';', names=['nome_completo', 'idade'], header=0)
