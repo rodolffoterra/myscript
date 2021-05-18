@@ -1,0 +1,27 @@
+import pandas as pd
+
+
+pd.isnull(Obj4)
+pd.notnull(Obj4)
+
+df.isnull().sum().sort_values(ascedending=False)[:10]
+
+frame2 = DataFrame(data, columns = ['Ano', 'Estado', 'População', 'Débito'], 
+                   index = ['um', 'dois', 'três', 'quatro', 'cinco'])
+                   
+         Ano	            Estado	        População	    Débito
+um	    2002         	Santa Catarina	    1.5       	  NaN
+dois	  2003        	Paraná	            1.7	          NaN
+três	  2004	        Goiás	              3.6	          NaN
+quatro	2005	        Bahia	              2.4	          NaN
+cinco 	2006	        Minas Gerais	      2.9	          NaN
+
+
+# Importando o NumPy
+import numpy as np
+
+# Usando o NumPy para alimentar uma das colunas do dataframe
+frame2['Débito'] = np.arange(5.)
+
+# Preenchendo os registros:
+df_diabetes['SkinThickness'].fillna(0).head(10)
