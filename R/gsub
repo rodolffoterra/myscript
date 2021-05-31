@@ -1,5 +1,6 @@
 # http://www.endmemo.com/r/gsub.php
 
+dados_full$deviceinfo <- factor(gsub("([A-Za-z]+).*",  "\\1", names_deviceinfo, ignore.case = FALSE))
 
 > x <- "R Tutorial"
 > gsub("ut","ot",x)
