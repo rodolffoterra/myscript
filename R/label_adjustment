@@ -11,6 +11,15 @@ or
 resultado_final$Previsao <- mapvalues(resultado_final$Previsao,
                                                  from = evels(as.factor(resultado_final$Previsao)),
                                                  to = c("Alto", "Médio", "Baixo"))
+                                                 
+                                                 
+                                                 
+dados_full$card4 = recode_factor(dados_full$card4, 
+                                 'american express' = "OTHER",  
+                                 'discover' = "OTHER", 
+                                 'visa' = "visa",   
+                                 'mastercard' = "mastercard",   
+                                 .default = "OTHER")
 
 
 
