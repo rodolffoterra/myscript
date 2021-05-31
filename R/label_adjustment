@@ -23,3 +23,5 @@ dados_full$card4 = recode_factor(dados_full$card4,
 
 
 
+dados_full$isfraud = factor(x = dados_full$isfraud, exclude = "Desconhecido")
+
