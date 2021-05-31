@@ -1,0 +1,23 @@
+comparedf(df1, df2)
+
+
+caso as colunas estejan em ordem diferentes
+
+df <- df %>%
+    select(-label, -isFraud, everythin())
+    
+df$label = name_columns
+
+
+
+# Lista de dataframes
+dfs <- c("dados_treino", "dados_teste")
+
+# Loop por todas as colunas dos dataframes para ajustar os nomes das colunas
+for (eachdf in dfs) {
+  df.tmp <- get(eachdf) 
+  for (eachcol in 1:length(df.tmp)){
+    colnames(df.tmp)[eachcol] <- str_trim(str_to_lower(str_replace_all(colnames(df.tmp)[eachcol], "_", ".")))
+  }
+  assign(eachdf, df.tmp) 
+}
