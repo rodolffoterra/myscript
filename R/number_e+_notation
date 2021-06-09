@@ -1,0 +1,5 @@
+ran2 <- c(1.810032e+09, 4) 
+options("scipen"=-100, "digits"=4)
+ran2
+options("scipen"=100, "digits"=4)
+ran2
