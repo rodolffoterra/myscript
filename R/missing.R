@@ -50,7 +50,12 @@ for(f in outrasNAcol){
     if(is.factor(dados_full[,f])){
       
       dados_full[,f] <- as.character(dados_full[,f])
-      
+
+           
+#remover algumas colunas de uma única vez
+excluir <- c("d","m","y")
+
+ico <- ico[,!(names(ico)%in% excluir)]      
       # Estratégia 2
       dados_full[,f][is.na(dados_full[,f])] <- "Desconhecido"
       dados_full[,f] <- factor(dados_full[,f])
