@@ -1,0 +1,79 @@
+Documentação de string em Python
+https://docs.python.org/pt-br/3/library/stdtypes.html#string-methods
+
+string = "Eu gosto de Python"
+string.replace(" ","")
+>> EugostodePython
+
+
+url = "\t www.alura.com"
+url.strip()
+>> "www.alura.com"
+
+
+string.rstrip()
+string.lstrip()
+
+
+
+# Mostrar algum erro
+if string == "":
+  raise ValueError("A string está vazia")
+  
+  
+  # Em que possição possuem tal caracter
+  string.find("gosto")
+  
+  
+  # Contar quantos caracteres possuem uma string
+  len(string)
+  >> 18
+  
+  
+  
+  
+  class ExtratorURL:
+    def __init__(self, url):
+        """Salva a url em um atributo do objeto (self.url = url) e verifica se a url é válida"""
+        ...
+
+    def sanitiza_url(self, url):
+        """Retorna a url removendo espaços em branco."""
+        ...
+
+    def valida_url(self):
+        """Valida se a url está vazia"""
+        ...
+
+    def get_url_base(self):
+        """Retorna a base da url."""
+        ...
+
+    def get_url_parametros(self):
+        """Retorna os parâmetros da url."""
+        ...
+
+    def get_valor_parametro(self, parametro_busca):
+        """Retorna o valor do parametro `parametro_busca`."""
+
+url = "bytebank.com/cambio?quantidade=100&moedaOrigem=real&moedaDestino=dolar"
+extrator_url = ExtratorURL(url)
+valor_quantidade = extrator_url.get_valor_parametro("quantidade")
+print(valor_quantidade)
+
+
+
+# Padrão para CEP:
+# Otimizando a busca do CEP
+padrao = re.compile('[0-9]{5}[-]{0,1}[0-9]{3}')
+
+endereco = 'Rua da Flores 72, apartamento 1002, Laranjeira, Rio de Janeiro, RJ, 23440-120'
+busca = padrao.search(endereco) 
+if busca:
+    cep = busca.group()
+cep
+
+
+# Padrão para CPF
+padrao = “[0-9]{3}[.]{1}[0-9]{3}[.]{1}[0-9]{3}[-]{1}[0123456789]{2}”
+padrao = “[0-9]{3}[.][0-9]{3}[.][0-9]{3}[-][0-9]{2}”
