@@ -1,0 +1,8 @@
+dados = pd.DataFrame({'Profissão': [1, 2, 3, 1, 2, 2, 2, 3, 3, 2, 1, 3]})
+
+>> frequencia = dados['Profissão'].value_counts()
+>> percentual = dados['Profissão'].value_counts(normalize = True) * 100
+>> dist_freq_qualitativas = pd.DataFrame({'Frequência': frequencia, 'Porcentagem (%)': percentual})
+>> dist_freq_qualitativas.rename(index = {1: 'Estatístico', 2: 'Cientista de Dados', 3: 'Programador Python'}, inplace = True)
+>> dist_freq_qualitativas.rename_axis('Profissão', axis= 'columns', inplace = True)
+>> dist_freq_qualitativas
