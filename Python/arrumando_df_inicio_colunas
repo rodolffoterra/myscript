@@ -1,0 +1,33 @@
+import openpyxl
+import pandas as pd
+
+wb = openpyxl.load_workbook('fag.xlsx')
+sheet = wb.active
+
+##Remove linhas acima do cabeçalho
+flag = False
+data = []
+header = []
+for row in sheet.values:
+    if flag:
+        data.append(list(row))
+    if 'Lib.mayor' in row:
+        header = tuple([value.replace(" ","") if value else f'fake_{i}' for i,value in enumerate(row)])
+        flag = True
+#Cria o dataframe
+df = pd.DataFrame(data, columns=header)
+
+#Remove colunas repetidas
+df = df.loc[:,~df.columns.duplicated()]
+
+df.fillna('None',inplace=True)
+
+#Troca os '*' por None
+for col in df:
+    df[col] = df[col].apply(lambda x: None if x and '*' in str(x) else x)
+    df[col] = df[col].apply(lambda x: None if x=='None' else x)
+
+#Remover as linhas com todos os valores Nulos
+df.dropna(how='all', inplace=True)
+#Remover as colunas com todos os valores Nulos
+df.dropna(how='all', axis=1, inplace=True)
